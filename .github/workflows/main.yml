@@ -22,6 +22,13 @@ jobs:
         pip install flake8
     - name: Print working directory
       run: pwd
+
+    - name: Configure flake8
+      run: echo "[flake8]" > .flake8
+    
+    - name: Configure flake8-2
+      run: echo "max-line-length = 200" >> .flake8
+
     - name: Run Linter
       run: |
         pwd
