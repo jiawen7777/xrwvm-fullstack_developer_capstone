@@ -6,7 +6,7 @@ import logging
 load_dotenv()
 
 
-logger = logging.getLogger("dealership") # Use the module's `__name__` to get a namespaced logger.
+logger = logging.getLogger("dealership")  # Use the module's `__name__` to get a namespaced logger.
 
 
 backend_url = os.getenv("backend_url", default="http://localhost:3030")
