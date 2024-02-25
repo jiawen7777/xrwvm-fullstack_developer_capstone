@@ -1,6 +1,5 @@
 from fastapi import FastAPI, HTTPException
 from textblob import TextBlob
-from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -19,5 +18,9 @@ async def analyze_sentiment(text):
         "text": text,
         "polarity": sentiment.polarity,
         "subjectivity": sentiment.subjectivity,
-        "assessment": "positive" if sentiment.polarity > 0 else "negative" if sentiment.polarity < 0 else "neutral"
+        "assessment": (
+            "positive"
+            if sentiment.polarity > 0
+            else "negative" if sentiment.polarity < 0 else "neutral"
+        ),
     }

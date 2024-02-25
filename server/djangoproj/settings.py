@@ -27,10 +27,8 @@ SECRET_KEY = "django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = [
-    '*'
-]
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["*"]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [],
@@ -93,32 +91,32 @@ DATABASES = {
 }
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {message}',
-            'style': '{',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {message}",
+            "style": "{",
         },
-        'simple': {
-            'format': '{levelname} {message}',
-            'style': '{',
-        },
-    },
-    'handlers': {
-        'file': {
-            'level': 'DEBUG', # Or a different level like 'INFO'
-            'class': 'logging.FileHandler',
-            'filename': 'app.log', # Full path to your log file
-            'formatter': 'verbose', # Or use 'simple' for less detail
+        "simple": {
+            "format": "{levelname} {message}",
+            "style": "{",
         },
     },
-    'loggers': {
+    "handlers": {
+        "file": {
+            "level": "DEBUG",  # Or a different level like 'INFO'
+            "class": "logging.FileHandler",
+            "filename": "app.log",  # Full path to your log file
+            "formatter": "verbose",  # Or use 'simple' for less detail
+        },
+    },
+    "loggers": {
         # Define other loggers for your app here
-        'dealership': {
-            'handlers': ['file'],
-            'level': 'DEBUG', # Or your chosen level
-            'propagate': True,
+        "dealership": {
+            "handlers": ["file"],
+            "level": "DEBUG",  # Or your chosen level
+            "propagate": True,
         },
     },
 }
