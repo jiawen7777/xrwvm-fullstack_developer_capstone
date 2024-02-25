@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sentiment-analyzer-service
+  namespace: dealership
+spec:
+  selector:
+    app: sentiment-analyzer
+  ports:
+    - protocol: TCP
+      port: 5001
+      targetPort: 5001

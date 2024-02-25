@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dealerapp-deployment
+  namespace: dealership
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dealerapp
+  template:
+    metadata:
+      labels:
+        app: dealerapp
+    spec:
+      containers:
+        - name: dealerapp
+          image: dealership:1.0
+          ports:
+            - containerPort: 8001
+          env:
+            - name: backend_url
+              value: "http://node-api-service:3030"
+            - name: sentiment_analyzer_url
+              value: "http://sentiment-analyzer-service:5001"
+# kubectl scale deployment django-deployment --replicas=5

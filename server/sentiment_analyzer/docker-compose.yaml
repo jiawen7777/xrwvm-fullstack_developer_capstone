@@ -1,0 +1,7 @@
+version: '3.9'
+services:
+  sentiment-analyzer:
+    container_name: sentiment-analyzer
+    image: sentiment-analyzer
+    ports:
+      - 5001:5001

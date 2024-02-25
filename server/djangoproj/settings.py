@@ -27,12 +27,9 @@ SECRET_KEY = "django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "localhost",
-    "https://skylineec4rf-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",
-]
+ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
-    "https://skylineec4rf-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"
+    '*'
 ]
 
 REST_FRAMEWORK = {
@@ -94,6 +91,38 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG', # Or a different level like 'INFO'
+            'class': 'logging.FileHandler',
+            'filename': 'app.log', # Full path to your log file
+            'formatter': 'verbose', # Or use 'simple' for less detail
+        },
+    },
+    'loggers': {
+        # Define other loggers for your app here
+        'dealership': {
+            'handlers': ['file'],
+            'level': 'DEBUG', # Or your chosen level
+            'propagate': True,
+        },
+    },
+}
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {

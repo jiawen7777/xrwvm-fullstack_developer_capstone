@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentiment-analyzer-deployment
+  namespace: dealership
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sentiment-analyzer
+  template:
+    metadata:
+      labels:
+        app: sentiment-analyzer
+    spec:
+      containers:
+        - name: sentiment-analyzer
+          image: sentiment-analyzer:1.0
+          ports:
+            - containerPort: 5001

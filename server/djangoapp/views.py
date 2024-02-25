@@ -11,7 +11,7 @@ from .populate import initiate
 from .restapis import get_request, analyze_review_sentiments, post_review
 
 # Get an instance of a logger
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("dealership")
 
 
 # Create your views here.
@@ -64,7 +64,6 @@ def get_dealerships(request, state="All"):
     else:
         endpoint = "/fetchDealers/" + state
     dealerships = get_request(endpoint)
-    # print(dealerships)
     return JsonResponse({"status": 200, "dealers": dealerships})
 
 
@@ -76,8 +75,7 @@ def get_dealer_reviews(request, dealer_id):
         reviews = get_request(endpoint)
         for review_detail in reviews:
             response = analyze_review_sentiments(review_detail["review"])
-            print(response)
-            review_detail["sentiment"] = response["sentiment"]
+            review_detail["sentiment"] = response["assessment"]
         return JsonResponse({"status": 200, "reviews": reviews})
     else:
         return JsonResponse({"status": 400, "message": "Bad Request"})
