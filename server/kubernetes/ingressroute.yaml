@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: dealerapp-ingressroute
+  namespace: dealership
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`dealerproj.fun`) && PathPrefix(`/`)
+    kind: Rule
+    services:
+    - name: dealerapp-service
+      port: 8001
