@@ -1,6 +1,8 @@
 /*jshint esversion: 8 */
 const express = require("express");
 const mongoose = require("mongoose");
+var os = require("os");
+var hostname = os.hostname();
 const fs = require("fs");
 const cors = require("cors");
 const app = express();
@@ -35,7 +37,7 @@ try {
 
 
 app.get("/", async (req, res) => {
-    res.send("Welcome to the Mongoose API");
+    res.send("Hello from " + hostname + ". Welcome to the Mongoose API \n");
 });
 
 

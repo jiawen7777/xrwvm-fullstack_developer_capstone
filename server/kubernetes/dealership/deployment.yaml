@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: dealerapp
-          image: dealership:1.0
+          image: dealership:1.2
           ports:
             - containerPort: 8001
           env:
