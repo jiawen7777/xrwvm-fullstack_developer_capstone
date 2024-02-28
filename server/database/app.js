@@ -33,10 +33,16 @@ try {
   res.status(500).json({ error: "Error fetching documents" });
 }
 
-// Express route to home
+
 app.get("/", async (req, res) => {
-  res.send("Welcome to the Mongoose API");
+    res.send("Welcome to the Mongoose API");
 });
+
+
+app.get("/health", async (req, res) => {
+  res.send("health");
+});
+
 
 // Express route to fetch all reviews
 app.get("/fetchReviews", async (req, res) => {

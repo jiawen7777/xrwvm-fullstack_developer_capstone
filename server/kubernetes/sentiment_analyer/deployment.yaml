@@ -18,3 +18,8 @@ spec:
           image: sentiment-analyzer:1.0
           ports:
             - containerPort: 5001
+          resources:
+          limits:
+            cpu: 400m
+          requests:
+            cpu: 100m
